@@ -1,0 +1,25 @@
+{
+  "name": "hackustica-pattern-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FF3300-studio/hackustica-pattern-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FF3300-studio/hackustica-pattern-generator/issues"
+  },
+  "homepage": "https://github.com/FF3300-studio/hackustica-pattern-generator#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1",
+    "typescript": "^4.2.3"
+  }
+}
