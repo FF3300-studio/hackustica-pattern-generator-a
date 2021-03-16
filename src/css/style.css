@@ -17,6 +17,7 @@ body {
 .input {
   padding: var(--aria);
   height: 100%;
+  overflow-y: scroll;
 }
 
 .input > * {
