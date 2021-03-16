@@ -61,7 +61,7 @@ typings/
 .env
 
 # Parcel related files
-.parcel-cache
 dist/
+.parcel-cache
 
 .DS_Store
