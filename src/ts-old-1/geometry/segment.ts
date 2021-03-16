@@ -29,7 +29,7 @@ export default class Segment {
     return this.points[this.points.length - 1];
   }
 
-  // Flips the array
+  // Reverses the order of points
   flip(): Segment {
     const flipped = new Segment();
     for (var i = this.length() - 1; i >= 0; i--) {

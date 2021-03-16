@@ -1,48 +1,43 @@
-import Point from "../point";
-import Segment from "../segment";
-import Path from "../path";
+import paper from "paper";
+import { interpolate_points } from "./interpolation";
 
-function strokeWaveHalf(
-  p: Point,
+export function wave(
+  p: paper.Point,
   w: number,
   h: number,
-  f: number
-): Array<Point> {
-  // End point
-  const q: Point = p.add(new Point(w, h));
-  // P projection
-  const pp: Point = p.add(new Point(0, h * f));
-  // Q projection
-  const qp: Point = q.add(new Point(0, -h * f));
+  s: number
+): paper.Path {
+  // Wave anchors
+  const p0 = p;
+  const p1 = p0.add(new paper.Point(w, h / 2));
+  const p2 = p0.add(new paper.Point(0, h));
 
-  return [pp, qp, q];
-}
+  // Calculating first anchors
+  const p01 = p0.add(new paper.Point(0, (+h / 2) * s));
+  const p10 = p1.add(new paper.Point(0, (-h / 2) * s));
 
-function strokeWave(p: Point, w: number, h: number, f: number): Path {
-  // First strokeWaveHalf
-  const w0: Array<Point> = strokeWaveHalf(p, w, h / 2, f);
-  // Next starting point
-  const q = w0[w0.length - 1];
-  // Second strokeWaveHalf
-  const w1: Array<Point> = strokeWaveHalf(q, -w, h / 2, f);
+  // Calculating second anchors
+  const p12 = p1.add(new paper.Point(0, (+h / 2) * s));
+  const p21 = p2.add(new paper.Point(0, (-h / 2) * s));
 
-  // Creating return path
-  const path = new Path();
-  path.lineTo(p);
-  path.curveTo(w0[0], w0[1], w0[2]);
-  path.curveTo(w1[0], w1[1], w1[2]);
+  // Drawing
+  const path = new paper.Path();
+  path.moveTo(p0);
+  path.cubicCurveTo(p01, p10, p1);
+  path.cubicCurveTo(p12, p21, p2);
+
   return path;
 }
 
-export function strokeWaveTck(
-  p: Point,
-  w: number,
-  h: number,
-  f: number,
-  t: number
-): Path {
-  // Getting middle strokeWave
-  const wave = strokeWave(p, w, h, f);
-  // Getting left contour
-  const wL = wave.console.log(wave);
+export function tile_wave(
+  r: paper.Rectangle,
+  d: number = 1,
+  s: number = 0.5
+): paper.Path {
+  // Calculating origin point
+  const p = new paper.Point(r.x + r.width / 2, r.y);
+  // Getting path
+  const path = wave(p, (d * r.width) / 4, r.height, s);
+
+  return path;
 }
