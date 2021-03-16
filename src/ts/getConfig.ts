@@ -59,7 +59,7 @@ export function getConfig(): Config {
     thickness: {
       min: getInputFloatValue("tck_min"),
       max: getInputFloatValue("tck_max"),
-      randomness: getInputFloatValue("tck_rnd"),
+      randomness: 0, //getInputFloatValue("tck_rnd"),
     },
   };
 }

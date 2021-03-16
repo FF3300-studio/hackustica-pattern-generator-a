@@ -86,7 +86,6 @@ function getGridConfig(
 export function draw() {
   // Getting data from html input
   const config = getConfig();
-  console.log(config);
 
   // Calculating grid properties
   const gridConfig = getGridConfig(
@@ -96,7 +95,6 @@ export function draw() {
     config.grid.rows,
     config.grid.cell_ratio
   );
-  console.log(gridConfig);
 
   const canvas = createCanvas(config.canvas.width, config.canvas.height);
 
@@ -109,8 +107,6 @@ export function draw() {
     { weight: config.tiles.wave.density, id: "wave" },
     { weight: config.tiles.peak.density, id: "peak" },
   ];
-
-  console.log(table);
 
   for (let c = 0; c < config.grid.columns; c++) {
     for (let r = 0; r < config.grid.rows; r++) {
@@ -134,18 +130,20 @@ export function draw() {
         path = tile_peak(rect, choice([-1, 1]), 0.56);
       }
 
-      path.strokeColor = "black";
-      const f = config.thickness.randomness;
-      path.strokeWidth =
-        gridConfig.cell.width *
-        interpolate_values(
-          config.thickness.min,
-          config.thickness.max,
-          noise(c * f, r * f, Math.random() * config.grid.columns)
-        );
+      const noise_f = 0.1;
+      // const tck_f = interpolate_values(
+      //   config.thickness.min,
+      //   config.thickness.max,
+      //   noise(c, r, Math.random())
+      // );
+      const tck_f = interpolate_values(
+        config.thickness.min,
+        config.thickness.max,
+        Math.random()
+      );
 
-      // const tile = rwc(table);
-      // console.log(tile);
+      path.strokeColor = "black";
+      path.strokeWidth = gridConfig.cell.width * tck_f;
     }
   }
 
