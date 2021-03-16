@@ -9,7 +9,7 @@ import paper from "paper";
     type: "image/svg+xml;charset=utf-8",
   });
   const svgUrl = URL.createObjectURL(svgBlob);
-  const name = "hoffman100.svg";
+  const name = "hackustica.svg";
   const downloadLink = document.createElement("a");
   downloadLink.href = svgUrl;
   downloadLink.download = name;

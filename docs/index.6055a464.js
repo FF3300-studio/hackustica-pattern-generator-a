@@ -1,2 +1,0 @@
-!function(){var e,o=(0,("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequire3a0c)("4IOJ6"),n=(e=o())&&e.__esModule?e.default:e;o(),window.downloadSVG=function(){let e=n.project.exportSVG();e.outerHTML;const o=new Blob(['<?xml version="1.0" standalone="no"?>\r\n',e.outerHTML],{type:"image/svg+xml;charset=utf-8"}),l=URL.createObjectURL(o),t=document.createElement("a");t.href=l,t.download="hoffman100.svg",t.click()}}();
-//# sourceMappingURL=index.6055a464.js.map
