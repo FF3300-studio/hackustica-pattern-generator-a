@@ -62,5 +62,6 @@ typings/
 
 # Parcel related files
 .parcel-cache
+dist/
 
 .DS_Store
