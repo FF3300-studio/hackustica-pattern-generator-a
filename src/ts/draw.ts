@@ -136,11 +136,12 @@ export function draw() {
       //   config.thickness.max,
       //   noise(c, r, Math.random())
       // );
-      const tck_f = interpolate_values(
-        config.thickness.min,
-        config.thickness.max,
-        Math.random()
-      );
+      // const tck_f = interpolate_values(
+      //   config.thickness.min,
+      //   config.thickness.max,
+      //   Math.random()
+      // );
+      const tck_f = choice(config.thickness);
 
       path.strokeColor = "black";
       path.strokeWidth = gridConfig.cell.width * tck_f;

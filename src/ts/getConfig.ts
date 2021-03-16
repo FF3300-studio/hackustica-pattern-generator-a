@@ -8,6 +8,13 @@ function getInputFloatValue(id) {
   return parseFloat(input.value);
 }
 
+function parseTck() {
+  const input = <HTMLInputElement>document.getElementById("tck");
+  const text_values = input.value.split(";");
+  const values = text_values.map((value) => parseFloat(value));
+  return values;
+}
+
 interface TileConfig {
   density: number;
 }
@@ -27,11 +34,7 @@ export interface Config {
     wave: TileConfig;
     peak: TileConfig;
   };
-  thickness: {
-    min: number;
-    max: number;
-    randomness: number;
-  };
+  thickness: Array<number>;
 }
 
 export function getConfig(): Config {
@@ -56,10 +59,11 @@ export function getConfig(): Config {
         density: getInputIntegerValue("peak_num"),
       },
     },
-    thickness: {
-      min: getInputFloatValue("tck_min"),
-      max: getInputFloatValue("tck_max"),
-      randomness: 0, //getInputFloatValue("tck_rnd"),
-    },
+    thickness: parseTck(),
+    // {
+    // min: getInputFloatValue("tck_min"),
+    // max: getInputFloatValue("tck_max"),
+    // randomness: 0, //getInputFloatValue("tck_rnd"),
+    // },
   };
 }
