@@ -54,3 +54,7 @@ hr {
 #canvas {
   background-color: white;
 }
+
+.mb-2 {
+  margin-bottom: calc(var(--aria) / 2);
+}
