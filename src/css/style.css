@@ -43,7 +43,7 @@ hr {
 .output {
   background-color: #efefef;
   flex-grow: 1;
-  padding: calc(var(--aria) * 2);
+  padding: var(--aria);
   /* display: flex;
   flex-flow: row nowrap;
   justify-content: center;
