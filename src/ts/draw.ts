@@ -103,9 +103,9 @@ export function draw() {
 
   // Total probability
   const table = [
-    { weight: config.tiles.line.density, id: "line" },
-    { weight: config.tiles.wave.density, id: "wave" },
-    { weight: config.tiles.peak.density, id: "peak" },
+    { weight: config.tiles.line, id: "line" },
+    { weight: config.tiles.wave, id: "wave" },
+    { weight: config.tiles.peak, id: "peak" },
   ];
 
   for (let c = 0; c < config.grid.columns; c++) {
@@ -124,10 +124,13 @@ export function draw() {
       let tile = rwc(table);
       if (tile == "line") {
         path = tile_line(rect);
+        path.strokeColor = "#3366FF";
       } else if (tile == "wave") {
         path = tile_wave(rect, choice([-1, 1]), 0.5);
+        path.strokeColor = "#66FF99";
       } else if (tile == "peak") {
         path = tile_peak(rect, choice([-1, 1]), 0.56);
+        path.strokeColor = "#FF6666";
       }
 
       const noise_f = 0.1;
@@ -143,7 +146,7 @@ export function draw() {
       // );
       const tck_f = choice(config.thickness);
 
-      path.strokeColor = "black";
+      // path.strokeColor = rwc(colortable);
       path.strokeWidth = gridConfig.cell.width * tck_f;
     }
   }

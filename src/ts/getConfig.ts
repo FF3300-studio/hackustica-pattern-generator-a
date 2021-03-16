@@ -15,10 +15,6 @@ function parseTck() {
   return values;
 }
 
-interface TileConfig {
-  density: number;
-}
-
 export interface Config {
   canvas: {
     width: number;
@@ -30,9 +26,9 @@ export interface Config {
     cell_ratio: number;
   };
   tiles: {
-    line: TileConfig;
-    wave: TileConfig;
-    peak: TileConfig;
+    line: number;
+    wave: number;
+    peak: number;
   };
   thickness: Array<number>;
 }
@@ -49,15 +45,9 @@ export function getConfig(): Config {
       cell_ratio: getInputFloatValue("cell_ratio"),
     },
     tiles: {
-      line: {
-        density: getInputIntegerValue("line_num"),
-      },
-      wave: {
-        density: getInputIntegerValue("wave_num"),
-      },
-      peak: {
-        density: getInputIntegerValue("peak_num"),
-      },
+      line: getInputIntegerValue("line_num"),
+      wave: getInputIntegerValue("wave_num"),
+      peak: getInputIntegerValue("peak_num"),
     },
     thickness: parseTck(),
     // {

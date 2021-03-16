@@ -4,13 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Hackustica Pattern</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="input">
+      <p>
+        <strong>
+          Hackustica<br />
+          Pattern<br />
+          Generator
+        </strong>
+      </p>
+
+      <hr />
+
       <!-- Disegna! -->
-      <button type="button" onclick="draw()">Disegna!</button>
+      <!-- <button type="button" onclick="draw()">Disegna!</button> -->
       <button type="button" onclick="downloadSVG()">↓ SVG</button>
 
       <hr />
@@ -79,11 +89,12 @@
 
       <hr />
 
-      <!-- Linea -->
+      <!-- Densità forme -->
       <div class="input__group">
-        <p class="input__group__text"><strong>Linea</strong></p>
+        <p class="input__group__text"><strong>Densità forme</strong></p>
+        <!-- Linea -->
         <div class="input__item">
-          <label for="line_num">Densità</label>
+          <label for="line_num">Linea</label>
           <input
             type="number"
             id="line_num"
@@ -93,13 +104,9 @@
             min="0"
           />
         </div>
-      </div>
-
-      <!-- Onda -->
-      <div class="input__group">
-        <p class="input__group__text"><strong>Onda</strong></p>
+        <!-- Onda -->
         <div class="input__item">
-          <label for="wave_num">Densità</label>
+          <label for="wave_num">Onda</label>
           <input
             type="number"
             id="wave_num"
@@ -109,13 +116,9 @@
             min="0"
           />
         </div>
-      </div>
-
-      <!-- Picco -->
-      <div class="input__group">
-        <p class="input__group__text"><strong>Picco</strong></p>
+        <!-- Picco -->
         <div class="input__item">
-          <label for="peak_num">Densità</label>
+          <label for="peak_num">Picco</label>
           <input
             type="number"
             id="peak_num"
@@ -131,11 +134,10 @@
 
       <!-- Spessore -->
       <div class="input__group">
-        <p class="input__group__text"><strong>Spessore</strong></p>
+        <p class="input__group__text"><strong>Spessori</strong></p>
         <!-- Spessore minimo -->
         <div class="input__item">
-          <label for="tck">Spessori</label>
-          <input type="text" id="tck" value="0.1; 0.2; 0.3; 0.4" />
+          <input type="text" id="tck" value="0.1; 0.15; 0.2; 0.25; 0.3; 0.35" />
         </div>
         <!-- Spessore minimo -->
         <!-- <div class="input__item">
