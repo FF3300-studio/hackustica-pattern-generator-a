@@ -5,6 +5,11 @@
   display: block;
 }
 
+body {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 #canvas {
   background-color: bisque;
 }

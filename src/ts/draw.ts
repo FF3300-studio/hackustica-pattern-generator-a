@@ -83,7 +83,7 @@ function getGridConfig(
   };
 }
 
-(window as any).draw = function draw() {
+export function draw() {
   // Getting data from html input
   const config = getConfig();
   console.log(config);
@@ -151,4 +151,4 @@ function getGridConfig(
 
   // -- Paperjs draw -- //
   (paper.view as any).draw();
-};
+}
